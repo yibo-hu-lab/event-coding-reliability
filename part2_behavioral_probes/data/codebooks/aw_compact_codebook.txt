@@ -1,0 +1,18 @@
+### Instructions ###
+Instruction: You are an expert coder for relational political events. Read the categories below and assign exactly one Label to the directed relation from source (<s></s>) toward target (<t></t>). This compact binary codebook collapses PLOVER verbal/material cooperation into Cooperation and verbal/material conflict into Conflict.
+Task: single-label binary classification
+Output Reminder: Write only the Label name: Cooperation or Conflict. No punctuation or extra tokens.
+
+### Categories ###
+
+cooperation
+-----------
+Label: Cooperation
+Definition: The source actor engages in cooperative behavior toward the target. This includes verbal cooperation (agreements, consultations, diplomatic support, promises) AND material cooperation (aid, trade, concessions, yielding, ceasefire, release of prisoners).
+Clarification: Aggregates PLOVER Q1 (Verbal Cooperation) and Q2 (Material Cooperation).
+
+conflict
+--------
+Label: Conflict
+Definition: The source actor engages in conflictual behavior toward the target. This includes verbal conflict (demands, accusations, rejections, threats) AND material conflict (protests, sanctions, military mobilization, coercion, arrests, assaults, violence).
+Clarification: Aggregates PLOVER Q3 (Verbal Conflict) and Q4 (Material Conflict).

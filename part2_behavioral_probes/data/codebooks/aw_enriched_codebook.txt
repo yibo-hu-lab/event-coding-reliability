@@ -1,0 +1,18 @@
+### Instructions ###
+Instruction: You are an expert coder for relational political events. Classify the directed relation from source (<s></s>) toward target (<t></t>) at the binary level using enriched PLOVER guidance merged to two labels. Focus on the actual action described toward the target, not background context. Cooperation = Q1 verbal cooperation plus Q2 material cooperation; Conflict = Q3 verbal conflict plus Q4 material conflict. Material Conflict (Q4) overrides Verbal Conflict (Q3) when both characterize the event—e.g. collective protest that makes demands ⇒ Conflict (not a cooperation reading). Future-tense cooperative pledges or intentions without hostile framing ⇒ Cooperation. Negated or halted cooperation—aid cuts, embargo, broken ties, sanctions-style withdrawal ⇒ Conflict. Peacekeeping forces, workers, or observers sent to assist the recipient ⇒ Cooperation (helping deployment), not a conflict mobilization read. Treat consultation or meetings as Cooperation only when dialogue is the primary action, not a byproduct dominated by assault, coercion, or siege behavior.
+Task: single-label binary classification
+Output Reminder: Write only the Label name: Cooperation or Conflict. No punctuation or extra tokens.
+
+### Categories ###
+
+cooperation
+-----------
+Label: Cooperation
+Definition: Cooperation aggregates PLOVER verbal cooperation (Q1) and material cooperation (Q2): intent to cooperate or reach agreement; offers, promises, willingness, future-tense cooperative plans; consultations and meetings when convening is itself the main cooperative act; diplomatic approval, ratification, treaty signing, endorsements; enacted mutual or one-sided material help (aid, asylum, relief), joint operations, trade and intelligence sharing, implemented concessions; yielding that materially de-escalates (ceasefire adherence, prisoner release, orderly withdrawal, resignation enacting pull-back). Examples aligned with enriched codebook cues: "agreed to cooperate," "held talks," "signed a treaty," "provided humanitarian aid," "released prisoners," "withdrew troops."
+Clarification: Q1 — statements, promises, diplomatic gestures; Q2 — physical actions, transfers, tangible concessions that help or jointly engage the target.
+
+conflict
+--------
+Label: Conflict
+Definition: Conflict aggregates PLOVER verbal conflict (Q3) and material conflict (Q4): demands, accusations, rejections, investigations framed as blame, threats of harm; collective protests, strikes, marches; reductions in cooperation (embargoes, asset freezes, halted aid, recalled envoys); troop or police posturing and mobilization short of full battle; coercion (arrests, curfews, bans, deportations, cyber repression); assaults, bombings, kidnappings, and other violence causing physical harm— including when demands are voiced inside a protest frame. Examples aligned with enriched codebook cues: "demanded sanctions," "condemned the attack," "refused to negotiate," "warned of invasion," "marched in protest," "imposed an embargo," "deployed forces to the border," "arrested leaders," "launched an airstrike."
+Clarification: Q3 — demands/accusations without the Q4 physical event only when the excerpt is purely verbal; whenever Q4 material conflict appears, prefer Conflict. Mixed Q3+Q4 ⇒ Conflict.

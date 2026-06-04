@@ -1,0 +1,96 @@
+### Instructions ###
+Instruction: You are an expert annotator for political relation and event coding following the PLOVER 15-label root ontology. Read the category definitions below, then read the document and return the single Label that best matches the source-target relation described in the document. Use only the provided labels. Prioritize Material Conflict (Q4) over Verbal Conflict (Q3). E.g. "protest to request" = PROTEST; "convict and arrest" = COERCE.
+Task: single label multiclass
+Output Reminder: Write the name of the Label that fits best, with no other text. For example, "Label: AGREE", "Label: THREATEN", or "Label: ASSAULT".
+
+### Categories ###
+
+agree
+-----
+Label: AGREE
+Definition: Agree to, offer, promise, or indicate willingness to cooperate, including promises to sign or ratify agreements. Cooperative actions reported in future tense should be coded as AGREE.
+Clarification: Q1-Verbal Cooperation.
+
+consult
+-----
+Label: CONSULT
+Definition: All consultations and meetings, including visiting, hosting visits, meeting at neutral location, consultation by phone or other media.
+Clarification: Q1-Verbal Cooperation.
+
+support
+-----
+Label: SUPPORT
+Definition: Initiate, resume, improve, or expand diplomatic, non-material cooperation; express support for, commend, approve, or ratify, sign, or finalize an agreement or treaty.
+Clarification: Q1-Verbal Cooperation.
+
+cooperate
+-----
+Label: COOPERATE
+Definition: Initiate, resume, improve, or expand mutual material cooperation or exchange, including economics, military, judicial matters, and sharing of intelligence.
+Clarification: Q2-Material Cooperation.
+
+aid
+-----
+Label: AID
+Definition: All provisions of material aid whose benefits primarily accrue to the recipient, including monetary, military, humanitarian, asylum etc.
+Clarification: Q2-Material Cooperation.
+
+yield
+-----
+Label: YIELD
+Definition: Yieldings or concessions: resignations, easing of restrictions, release of prisoners, repatriation, allowing access, disarming, ceasefire, military retreat.
+Clarification: Q2-Material Cooperation.
+
+request
+-----
+Label: REQUEST
+Definition: All verbal requests, demands, and orders, less forceful than threats. Demands as demonstrations/protests are coded as PROTEST.
+Clarification: Q3-Verbal Conflict.
+
+accuse
+-----
+Label: ACCUSE
+Definition: Disapprovals, complaints; condemn, criticize, defame. Accuse, charge judicially or informally. Sue or bring to court. Investigations.
+Clarification: Q3-Verbal Conflict.
+
+reject
+-----
+Label: REJECT
+Definition: All rejections and refusals of assistance, policy changes, yielding, or meetings.
+Clarification: Q3-Verbal Conflict.
+
+threaten
+-----
+Label: THREATEN
+Definition: All threats, coercive or forceful warnings with serious potential repercussions. Generally verbal acts.
+Clarification: Q3-Verbal Conflict.
+
+protest
+-----
+Label: PROTEST
+Definition: All civilian demonstrations and collective actions as protests. Dissent collectively, rally, gather to protest.
+Clarification: Q4-Material Conflict.
+
+sanction
+-----
+Label: SANCTION
+Definition: All reductions in existing cooperative relations. Withdrawing or discontinuing diplomatic, commercial, or material exchanges.
+Clarification: Q4-Material Conflict.
+
+mobilize
+-----
+Label: MOBILIZE
+Definition: Military or police moves short of actual force. Demonstration of military capabilities. Distinct from verbal THREAT and actual ASSAULT.
+Clarification: Q4-Material Conflict.
+
+coerce
+-----
+Label: COERCE
+Definition: Repression, restrictions on rights, coercive power short of violence: arresting, deporting, banning, curfew, cyber attacks.
+Clarification: Q4-Material Conflict.
+
+assault
+-----
+Label: ASSAULT
+Definition: Deliberate actions potentially resulting in substantial physical harm.
+Clarification: Q4-Material Conflict.

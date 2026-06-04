@@ -1,0 +1,414 @@
+{
+  "ROOTCODES": [
+    "AGREE",
+    "CONSULT",
+    "SUPPORT",
+    "COOPERATE",
+    "AID",
+    "YIELD",
+    "REQUEST",
+    "ACCUSE",
+    "REJECT",
+    "THREATEN",
+    "PROTEST",
+    "SANCTION",
+    "MOBILIZE",
+    "COERCE",
+    "ASSAULT"
+  ],
+  "ROOT2QUAD": {
+    "AGREE": 1,
+    "CONSULT": 1,
+    "SUPPORT": 1,
+    "COOPERATE": 2,
+    "AID": 2,
+    "YIELD": 2,
+    "REQUEST": 3,
+    "ACCUSE": 3,
+    "REJECT": 3,
+    "THREATEN": 3,
+    "PROTEST": 4,
+    "SANCTION": 4,
+    "MOBILIZE": 4,
+    "COERCE": 4,
+    "ASSAULT": 4
+  },
+  "ROOT2BIN": {
+    "AGREE": 1,
+    "CONSULT": 1,
+    "SUPPORT": 1,
+    "COOPERATE": 1,
+    "AID": 1,
+    "YIELD": 1,
+    "REQUEST": 2,
+    "ACCUSE": 2,
+    "REJECT": 2,
+    "THREATEN": 2,
+    "PROTEST": 2,
+    "SANCTION": 2,
+    "MOBILIZE": 2,
+    "COERCE": 2,
+    "ASSAULT": 2
+  },
+  "CODEBOOK_CHUNKS": [
+    {
+      "id": "cb_agree",
+      "rootcode": "AGREE",
+      "quadcode": 1,
+      "type": "definition",
+      "text": "AGREE (Quadcode 1 - Verbal Cooperation): Agree to, offer, promise, or otherwise indicate willingness or commitment to cooperate, including promises to sign or ratify agreements. Cooperative actions (CONSULT, SUPPORT, COOPERATE, AID, YIELD) reported in future tense are also coded as AGREE. Key signal: verbal commitment to future cooperative action."
+    },
+    {
+      "id": "cb_consult",
+      "rootcode": "CONSULT",
+      "quadcode": 1,
+      "type": "definition",
+      "text": "CONSULT (Quadcode 1 - Verbal Cooperation): All consultations and meetings, including visiting and hosting visits, meeting at neutral location, and consultation by phone or other media. Key signal: face-to-face or mediated dialogue between parties."
+    },
+    {
+      "id": "cb_support",
+      "rootcode": "SUPPORT",
+      "quadcode": 1,
+      "type": "definition",
+      "text": "SUPPORT (Quadcode 1 - Verbal Cooperation): Initiate, resume, improve, or expand diplomatic, non-material cooperation; express support for, commend, approve policy, action, or actor, or ratify, sign, or finalize an agreement or treaty. Key signal: verbal endorsement or diplomatic approval without material exchange."
+    },
+    {
+      "id": "cb_cooperate",
+      "rootcode": "COOPERATE",
+      "quadcode": 2,
+      "type": "definition",
+      "text": "COOPERATE (Quadcode 2 - Material Cooperation): Initiate, resume, improve, or expand mutual material cooperation or exchange, including economics, military, judicial matters, and sharing of intelligence. Key signal: tangible bilateral exchange benefiting both parties."
+    },
+    {
+      "id": "cb_aid",
+      "rootcode": "AID",
+      "quadcode": 2,
+      "type": "definition",
+      "text": "AID (Quadcode 2 - Material Cooperation): All provisions of providing material aid whose material benefits primarily accrue to the recipient, including monetary, military, humanitarian, asylum etc. Key signal: one-directional material benefit to recipient."
+    },
+    {
+      "id": "cb_yield",
+      "rootcode": "YIELD",
+      "quadcode": 2,
+      "type": "definition",
+      "text": "YIELD (Quadcode 2 - Material Cooperation): All concessions, retreats, releases, allowances of rights, easing of restrictions, ceasefires, reduction of protests, and policy reforms by actors who previously opposed them. Key signal: concession from a previously opposing position."
+    },
+    {
+      "id": "cb_request",
+      "rootcode": "REQUEST",
+      "quadcode": 3,
+      "type": "definition",
+      "text": "REQUEST (Quadcode 3 - Verbal Conflict): Requests, appeals, and demands for something that do not carry an explicit threat of force. Also includes sending people to investigate. Key signal: verbal demand without coercive implication."
+    },
+    {
+      "id": "cb_accuse",
+      "rootcode": "ACCUSE",
+      "quadcode": 3,
+      "type": "definition",
+      "text": "ACCUSE (Quadcode 3 - Verbal Conflict): Accusations, blame, complaints, lawsuits, or public verbal attacks directed at a target. Key signal: verbal blame, criticism, or legal action against another party."
+    },
+    {
+      "id": "cb_reject",
+      "rootcode": "REJECT",
+      "quadcode": 3,
+      "type": "definition",
+      "text": "REJECT (Quadcode 3 - Verbal Conflict): Explicit refusals of proposals, demands, or agreements. Rejecting cooperation, consultation, yielding, or any other action. Key signal: refusal or defiance of a specific request or proposal."
+    },
+    {
+      "id": "cb_threaten",
+      "rootcode": "THREATEN",
+      "quadcode": 3,
+      "type": "definition",
+      "text": "THREATEN (Quadcode 3 - Verbal Conflict): Warnings of punitive action, ultimatums, and threats of military or economic consequences. Also includes cooperative actions reported in FUTURE tense for Conflict quadcodes (since future conflict intent = threat). Key signal: verbal warning of negative consequences."
+    },
+    {
+      "id": "cb_protest",
+      "rootcode": "PROTEST",
+      "quadcode": 4,
+      "type": "definition",
+      "text": "PROTEST (Quadcode 4 - Material Conflict): Demonstrations, rallies, strikes, boycotts, obstruction of activities, and other forms of collective non-violent physical action opposing a target. Key signal: collective physical action expressing opposition."
+    },
+    {
+      "id": "cb_sanction",
+      "rootcode": "SANCTION",
+      "quadcode": 4,
+      "type": "definition",
+      "text": "SANCTION (Quadcode 4 - Material Conflict): Withdrawal or reduction of diplomatic relations, economic sanctions, halting negotiations, expelling people or organizations. Key signal: withdrawal of prior cooperation or formal punitive reduction in relations."
+    },
+    {
+      "id": "cb_mobilize",
+      "rootcode": "MOBILIZE",
+      "quadcode": 4,
+      "type": "definition",
+      "text": "MOBILIZE (Quadcode 4 - Material Conflict): Increasing military forces, heightened alert, preparation of forces, military exercises, or positioning troops — without actually using force. Key signal: military positioning or readiness without violence."
+    },
+    {
+      "id": "cb_coerce",
+      "rootcode": "COERCE",
+      "quadcode": 4,
+      "type": "definition",
+      "text": "COERCE (Quadcode 4 - Material Conflict): Repression, restrictions on rights, or coercive uses of power falling short of violence, such as arresting, deporting, banning individuals, imposing curfew, imposing restrictions on political freedoms or movement, conducting cyber attacks, etc. Key signal: non-violent but coercive material action."
+    },
+    {
+      "id": "cb_assault",
+      "rootcode": "ASSAULT",
+      "quadcode": 4,
+      "type": "definition",
+      "text": "ASSAULT (Quadcode 4 - Material Conflict): Deliberate actions which can potentially result in substantial physical harm. Includes all actual uses of military force, bombings, shootings, kidnappings, and unconventional mass violence. Key signal: actual physical violence or harm."
+    }
+  ],
+  "DISAMBIGUATION_CHUNKS": [
+    {
+      "id": "rule_conflict_override",
+      "type": "disambiguation",
+      "text": "CONFLICT OVERRIDE RULE: When top predictions include candidates in both Material Conflict (Q4) and Verbal Conflict (Q3), give priority to Material Conflict labels. Example: 'protest to request' should be coded as PROTEST (material) not REQUEST (verbal). Similarly, 'convict and arrest' should be COERCE (material) not ACCUSE (verbal)."
+    },
+    {
+      "id": "rule_future_tense",
+      "type": "disambiguation",
+      "text": "FUTURE TENSE RULE: Cooperative actions (CONSULT, SUPPORT, COOPERATE, AID, YIELD) reported in future tense should be coded as AGREE. Example: 'will provide aid' -> AGREE, not AID. 'plans to meet' -> AGREE, not CONSULT."
+    },
+    {
+      "id": "rule_protest_vs_request",
+      "type": "disambiguation",
+      "text": "PROTEST vs REQUEST: Demands that take the form of demonstrations, protests, or collective public action are coded as PROTEST (Q4), not REQUEST (Q3). Physical/collective nature overrides verbal demand."
+    },
+    {
+      "id": "rule_threaten_vs_mobilize",
+      "type": "disambiguation",
+      "text": "THREATEN vs MOBILIZE: THREATEN is verbal — warnings with potential repercussions. MOBILIZE is material — actual military/police movements demonstrating capability without using force. Troops physically move -> MOBILIZE. Leader issues warning -> THREATEN."
+    },
+    {
+      "id": "rule_accuse_vs_reject",
+      "type": "disambiguation",
+      "text": "ACCUSE vs REJECT: ACCUSE is blame or criticism directed at a target. REJECT is refusal of a specific proposal/demand. If the source is denying a request -> REJECT. If criticizing behavior -> ACCUSE."
+    },
+    {
+      "id": "rule_coerce_vs_assault",
+      "type": "disambiguation",
+      "text": "COERCE vs ASSAULT: COERCE is non-violent coercive action (arrests, deportation, bans, curfews, cyber attacks). ASSAULT involves actual physical violence or potential for substantial physical harm. Arrests -> COERCE. Bombings/shootings -> ASSAULT."
+    },
+    {
+      "id": "rule_support_vs_aid",
+      "type": "disambiguation",
+      "text": "SUPPORT vs AID: SUPPORT is verbal/diplomatic (endorse, approve, sign). AID involves material transfer (money, supplies, asylum). If something tangible changes hands -> AID. If it is an endorsement -> SUPPORT."
+    },
+    {
+      "id": "rule_yield_vs_agree",
+      "type": "disambiguation",
+      "text": "YIELD vs AGREE: YIELD requires a prior opposing position that is now conceded. AGREE is verbal commitment to future cooperation. If concession already happened -> YIELD. Promise to concede -> AGREE."
+    },
+    {
+      "id": "rule_cooperate_vs_aid",
+      "type": "disambiguation",
+      "text": "COOPERATE vs AID: COOPERATE is mutual/bilateral exchange benefiting both sides (joint exercises, intelligence sharing). AID is unidirectional benefit flowing mainly to the recipient. Both sides gain -> COOPERATE. One side receives -> AID."
+    }
+  ],
+  "EXAMPLE_BANK": [
+    {
+      "text": "<S>The president</S> agreed to sign the peace treaty with <T>the opposition</T>.",
+      "rootcode": "AGREE",
+      "explanation": "Verbal commitment to cooperate (sign treaty)."
+    },
+    {
+      "text": "<S>Delegates</S> held talks with <T>foreign ministers</T> at the UN summit.",
+      "rootcode": "CONSULT",
+      "explanation": "Meeting/consultation between parties."
+    },
+    {
+      "text": "<S>The government</S> praised <T>the international community</T> for its efforts.",
+      "rootcode": "SUPPORT",
+      "explanation": "Verbal endorsement without material exchange."
+    },
+    {
+      "text": "<S>Both countries</S> signed a mutual defense pact with <T>each other</T>.",
+      "rootcode": "COOPERATE",
+      "explanation": "Bilateral material cooperation (defense pact)."
+    },
+    {
+      "text": "<S>The UN</S> delivered humanitarian supplies to <T>the refugees</T>.",
+      "rootcode": "AID",
+      "explanation": "Unidirectional material benefit to recipient."
+    },
+    {
+      "text": "<S>The military</S> released political prisoners held by <T>the regime</T>.",
+      "rootcode": "YIELD",
+      "explanation": "Material concession (releasing prisoners)."
+    },
+    {
+      "text": "<S>The ambassador</S> demanded <T>the foreign government</T> release the hostages.",
+      "rootcode": "REQUEST",
+      "explanation": "Verbal demand without threat of force."
+    },
+    {
+      "text": "<S>Opposition leaders</S> accused <T>the ruling party</T> of corruption.",
+      "rootcode": "ACCUSE",
+      "explanation": "Verbal blame/criticism directed at target."
+    },
+    {
+      "text": "<S>The parliament</S> rejected <T>the president's</T> proposed budget.",
+      "rootcode": "REJECT",
+      "explanation": "Explicit refusal of a proposal."
+    },
+    {
+      "text": "<S>The general</S> warned <T>neighboring forces</T> of severe consequences.",
+      "rootcode": "THREATEN",
+      "explanation": "Verbal warning of punitive action."
+    },
+    {
+      "text": "<S>Thousands of citizens</S> marched in the streets against <T>the government</T>.",
+      "rootcode": "PROTEST",
+      "explanation": "Collective physical action expressing opposition."
+    },
+    {
+      "text": "<S>The EU</S> withdrew its ambassador from <T>the country</T>.",
+      "rootcode": "SANCTION",
+      "explanation": "Reduction/withdrawal of diplomatic relations."
+    },
+    {
+      "text": "<S>The army</S> deployed troops along the border with <T>the neighboring state</T>.",
+      "rootcode": "MOBILIZE",
+      "explanation": "Military positioning without actual use of force."
+    },
+    {
+      "text": "<S>Police</S> arrested dozens of <T>opposition activists</T>.",
+      "rootcode": "COERCE",
+      "explanation": "Non-violent coercive action (arrests)."
+    },
+    {
+      "text": "<S>Rebel forces</S> launched an attack on <T>government positions</T>.",
+      "rootcode": "ASSAULT",
+      "explanation": "Actual use of force causing physical harm."
+    },
+    {
+      "text": "<S>The president</S> will provide economic assistance to <T>the ally nation</T>.",
+      "rootcode": "AGREE",
+      "explanation": "CONTRASTIVE: Future tense cooperative -> AGREE, not AID."
+    },
+    {
+      "text": "<S>The president</S> provided economic assistance to <T>the ally nation</T>.",
+      "rootcode": "AID",
+      "explanation": "CONTRASTIVE: Past tense material transfer -> AID, not AGREE."
+    },
+    {
+      "text": "<S>The foreign minister</S> plans to meet with <T>the delegation</T> next week.",
+      "rootcode": "AGREE",
+      "explanation": "CONTRASTIVE: Future meeting -> AGREE, not CONSULT."
+    },
+    {
+      "text": "<S>The foreign minister</S> met with <T>the delegation</T> yesterday.",
+      "rootcode": "CONSULT",
+      "explanation": "CONTRASTIVE: Completed meeting -> CONSULT, not AGREE."
+    },
+    {
+      "text": "<S>The government</S> promised to ease restrictions on <T>the opposition</T>.",
+      "rootcode": "AGREE",
+      "explanation": "CONTRASTIVE: Promise to yield -> AGREE, not YIELD."
+    },
+    {
+      "text": "<S>The government</S> eased restrictions on <T>the opposition</T>.",
+      "rootcode": "YIELD",
+      "explanation": "CONTRASTIVE: Actual concession -> YIELD, not AGREE."
+    },
+    {
+      "text": "<S>Protesters</S> demanded reforms from <T>the government</T> at a rally.",
+      "rootcode": "PROTEST",
+      "explanation": "CONTRASTIVE: Demand via demonstration -> PROTEST (Q4), not REQUEST (Q3)."
+    },
+    {
+      "text": "<S>The ambassador</S> called on <T>the government</T> to implement reforms.",
+      "rootcode": "REQUEST",
+      "explanation": "CONTRASTIVE: Verbal appeal without physical action -> REQUEST."
+    },
+    {
+      "text": "<S>Authorities</S> convicted and imprisoned <T>the dissident</T>.",
+      "rootcode": "COERCE",
+      "explanation": "CONTRASTIVE: Material action (imprisonment) -> COERCE, not ACCUSE."
+    },
+    {
+      "text": "<S>Authorities</S> publicly blamed <T>the dissident</T> for inciting unrest.",
+      "rootcode": "ACCUSE",
+      "explanation": "CONTRASTIVE: Verbal blame only -> ACCUSE, not COERCE."
+    },
+    {
+      "text": "<S>Security forces</S> detained <T>journalists</T> covering the protests.",
+      "rootcode": "COERCE",
+      "explanation": "CONTRASTIVE: Detention without violence -> COERCE, not ASSAULT."
+    },
+    {
+      "text": "<S>Security forces</S> fired on <T>protesters</T> with live ammunition.",
+      "rootcode": "ASSAULT",
+      "explanation": "CONTRASTIVE: Physical violence -> ASSAULT, not COERCE."
+    },
+    {
+      "text": "<S>The defense minister</S> warned <T>the enemy</T> of military retaliation.",
+      "rootcode": "THREATEN",
+      "explanation": "CONTRASTIVE: Verbal warning -> THREATEN, not MOBILIZE."
+    },
+    {
+      "text": "<S>The navy</S> conducted exercises near <T>the disputed islands</T>.",
+      "rootcode": "MOBILIZE",
+      "explanation": "CONTRASTIVE: Physical military positioning -> MOBILIZE, not THREATEN."
+    },
+    {
+      "text": "<S>The president</S> endorsed <T>the ally's</T> position at the summit.",
+      "rootcode": "SUPPORT",
+      "explanation": "CONTRASTIVE: Verbal endorsement -> SUPPORT, not COOPERATE."
+    },
+    {
+      "text": "<S>The two nations</S> launched a joint intelligence-sharing program with <T>each other</T>.",
+      "rootcode": "COOPERATE",
+      "explanation": "CONTRASTIVE: Mutual material exchange -> COOPERATE, not SUPPORT."
+    },
+    {
+      "text": "<S>Both countries</S> exchanged military technology with <T>each other</T>.",
+      "rootcode": "COOPERATE",
+      "explanation": "CONTRASTIVE: Bilateral exchange -> COOPERATE, not AID."
+    },
+    {
+      "text": "<S>The donor country</S> shipped medical supplies to <T>the disaster zone</T>.",
+      "rootcode": "AID",
+      "explanation": "CONTRASTIVE: One-way material transfer -> AID, not COOPERATE."
+    },
+    {
+      "text": "<S>The spokesperson</S> criticized <T>the foreign government's</T> human rights record.",
+      "rootcode": "ACCUSE",
+      "explanation": "CONTRASTIVE: Verbal criticism -> ACCUSE, not REJECT."
+    },
+    {
+      "text": "<S>The committee</S> voted against <T>the proposed resolution</T>.",
+      "rootcode": "REJECT",
+      "explanation": "CONTRASTIVE: Refusing a specific proposal -> REJECT, not ACCUSE."
+    },
+    {
+      "text": "<S>The country</S> imposed trade restrictions on <T>the rival state</T>.",
+      "rootcode": "SANCTION",
+      "explanation": "CONTRASTIVE: Material punitive action -> SANCTION, not REJECT."
+    },
+    {
+      "text": "<S>The country</S> refused to participate in <T>the trade talks</T>.",
+      "rootcode": "REJECT",
+      "explanation": "CONTRASTIVE: Verbal refusal -> REJECT, not SANCTION."
+    },
+    {
+      "text": "<S>The premier</S> expressed intent to ease tensions with <T>the rival state</T>.",
+      "rootcode": "AGREE",
+      "explanation": "Intent to de-escalate = verbal cooperation commitment -> AGREE."
+    },
+    {
+      "text": "<S>The government</S> signed the ceasefire agreement with <T>rebel forces</T>.",
+      "rootcode": "SUPPORT",
+      "explanation": "Signing/ratifying an agreement -> SUPPORT (diplomatic action), not AGREE."
+    },
+    {
+      "text": "<S>The regime</S> shut down newspapers operated by <T>the opposition</T>.",
+      "rootcode": "COERCE",
+      "explanation": "Restricting press freedom -> COERCE (non-violent material restriction)."
+    },
+    {
+      "text": "<S>Armed groups</S> kidnapped <T>aid workers</T> in the region.",
+      "rootcode": "ASSAULT",
+      "explanation": "Kidnapping = potential for substantial physical harm -> ASSAULT."
+    }
+  ]
+}

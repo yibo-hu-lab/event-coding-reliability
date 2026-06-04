@@ -1,0 +1,31 @@
+Example 1:
+Sentence: <S>French National Assembly president</S> held talks with leaders of <T>Romania's</T> new government.
+Answer: CONSULT
+
+Example 2:
+Sentence: <S>The US</S> provided $500M in humanitarian aid to <T>Yemen</T>.
+Answer: AID
+
+Example 3:
+Sentence: <S>A Brazilian federal court</S> rejected a request from <T>former President Lula</T>.
+Answer: REJECT
+
+Example 4:
+Sentence: <S>Afghan rebels</S> kidnapped 16 <T>Soviet civilian advisers</T> and exploded bombs.
+Answer: ASSAULT
+
+Example 5:
+Sentence: <S>A Taliban leader</S> surrendered in <T>Afghanistan's Faryab province</T>.
+Answer: YIELD
+
+Example 6:
+Sentence: <S>North Korea</S> issued a warning of serious consequences to <T>South Korea</T>.
+Answer: THREATEN
+
+Example 7:
+Sentence: <S>Thousands of workers</S> staged demonstrations against <T>the government</T>.
+Answer: PROTEST
+
+Example 8:
+Sentence: <S>The EU</S> signed a trade agreement with <T>Canada</T>.
+Answer: SUPPORT

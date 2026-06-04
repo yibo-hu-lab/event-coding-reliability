@@ -1,0 +1,3 @@
+text,label,meta,context,source,target
+"<s>Country A</s> promised assistance to <t>Country B</t>.",AGREE,synthetic toy example,,Country A,Country B
+"<s>Group E</s> threatened <t>Group F</t> with retaliation.",THREATEN,synthetic toy example,,Group E,Group F

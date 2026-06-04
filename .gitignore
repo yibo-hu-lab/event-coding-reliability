@@ -1,0 +1,16 @@
+# Local runtime outputs
+results/
+*.jsonl
+*.log
+
+# Local data supplied by reviewer/user
+data/raw_data/*
+data/dataset_splits/*
+!data/raw_data/README.md
+!data/dataset_splits/README.md
+
+# Python/system artifacts
+__pycache__/
+*.py[cod]
+.DS_Store
+.ipynb_checkpoints/

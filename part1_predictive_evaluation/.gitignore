@@ -1,0 +1,11 @@
+scores/*.npy
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.venv/
+outputs/
+plots/
+scores/
+datasets/*.tsv
+!datasets/readme.md

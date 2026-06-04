@@ -1,0 +1,31 @@
+Example 1:
+Sentence: <S>French National Assembly president</S> held talks with leaders of <T>Romania's</T> new government.
+Answer: COOPERATION
+
+Example 2:
+Sentence: <S>The US</S> provided $500M in humanitarian aid to <T>Yemen</T>.
+Answer: COOPERATION
+
+Example 3:
+Sentence: <S>A Brazilian federal court</S> rejected a request from <T>former President Lula</T>.
+Answer: CONFLICT
+
+Example 4:
+Sentence: <S>Afghan rebels</S> kidnapped 16 <T>Soviet civilian advisers</T> and exploded bombs.
+Answer: CONFLICT
+
+Example 5:
+Sentence: <S>A Taliban leader</S> surrendered in <T>Afghanistan's Faryab province</T>.
+Answer: COOPERATION
+
+Example 6:
+Sentence: <S>North Korea</S> issued a warning of serious consequences to <T>South Korea</T>.
+Answer: CONFLICT
+
+Example 7:
+Sentence: <S>Thousands of workers</S> staged demonstrations against <T>the government</T>.
+Answer: CONFLICT
+
+Example 8:
+Sentence: <S>The EU</S> signed a trade agreement with <T>Canada</T>.
+Answer: COOPERATION

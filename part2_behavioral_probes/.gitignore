@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+.venv/
+results/
+data/dataset_splits/*.csv
+!data/dataset_splits/README.md

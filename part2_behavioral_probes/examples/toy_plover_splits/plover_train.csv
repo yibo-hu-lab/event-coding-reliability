@@ -1,0 +1,5 @@
+text,label,meta,context,source,target
+"<s>Country A</s> agreed to cooperate with <t>Country B</t>.",AGREE,synthetic toy example,,Country A,Country B
+"<s>Country C</s> sent food aid to <t>Country D</t>.",AID,synthetic toy example,,Country C,Country D
+"<s>Group E</s> accused <t>Group F</t> of violating the agreement.",ACCUSE,synthetic toy example,,Group E,Group F
+"<s>State G</s> imposed sanctions on <t>State H</t>.",SANCTION,synthetic toy example,,State G,State H

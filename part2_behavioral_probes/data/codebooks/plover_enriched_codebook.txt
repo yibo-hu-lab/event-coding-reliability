@@ -1,0 +1,96 @@
+### Instructions ###
+Instruction: You are an expert annotator for political relation and event coding using the PLOVER 15-root ontology. Classify the relation between source (<S></S>) and target (<T></T>). Focus on the actual action described, not background context. Material Conflict (Q4) overrides Verbal Conflict (Q3)—e.g. "protest to request" = PROTEST; "convict and arrest" = COERCE. Future-tense cooperation = AGREE, not enacted material deployment. Negated or halted cooperation = SANCTION (e.g. halted military aid, cut diplomatic ties). Peacekeeping forces, workers, or observers sent to help = AID, not MOBILIZE. Use CONSULT only when meeting is the main action, not a byproduct of another action.
+Task: single label multiclass
+Output Reminder: Write the name of the Label that fits best, with no other text. For example, "Label: AGREE", "Label: THREATEN", or "Label: ASSAULT".
+
+### Categories ###
+
+agree
+-----
+Label: AGREE
+Definition: Express intent to cooperate, offer, promise, or indicate willingness. Includes promises to sign or ratify agreements. Future-tense cooperative actions = AGREE. Examples: "agreed to cooperate," "offered to negotiate," "promised aid," "will provide assistance."
+Clarification: Q1 — Verbal Cooperation (statements, promises, diplomatic gestures).
+
+consult
+-----
+Label: CONSULT
+Definition: All consultations and meetings. Visiting, hosting visits, meeting at neutral locations, phone or media consultations. Only use when the meeting itself is the primary action. Examples: "held talks," "met with officials," "consulted by phone."
+Clarification: Q1 — Verbal Cooperation (statements, promises, diplomatic gestures).
+
+support
+-----
+Label: SUPPORT
+Definition: Initiate, resume, improve, or expand diplomatic or non-material cooperation. Express support for, commend, approve, ratify, sign, or finalize an agreement or treaty. Examples: "endorsed the plan," "signed a treaty," "praised the initiative."
+Clarification: Q1 — Verbal Cooperation (statements, promises, diplomatic gestures).
+
+cooperate
+-----
+Label: COOPERATE
+Definition: Initiate, resume, improve, or expand mutual material cooperation or exchange. Includes economics, military cooperation, judicial matters, intelligence sharing. Examples: "joint military exercises," "trade agreement implemented," "shared intelligence."
+Clarification: Q2 — Material Cooperation (physical actions, transfers, tangible concessions).
+
+aid
+-----
+Label: AID
+Definition: All provisions of material aid whose benefits primarily go to the recipient. Includes monetary, military, humanitarian, and asylum assistance. Examples: "provided $500M in aid," "sent humanitarian supplies," "granted asylum."
+Clarification: Q2 — Material Cooperation (physical actions, transfers, tangible concessions).
+
+yield
+-----
+Label: YIELD
+Definition: Yieldings or concessions. Resignations, easing of restrictions, release of prisoners, repatriation, allowing access, disarming, ceasefire, military retreat. Examples: "released prisoners," "agreed to ceasefire," "withdrew troops," "lifted the ban," "resigned from office."
+Clarification: Q2 — Material Cooperation (physical actions, transfers, tangible concessions).
+
+request
+-----
+Label: REQUEST
+Definition: Verbal requests, demands, and orders, less forceful than threats. NOTE: Demands made as demonstrations/protests = PROTEST instead. Examples: "demanded an apology," "called for sanctions," "urged compliance."
+Clarification: Q3 — Verbal Conflict (statements, demands, accusations; NO physical action).
+
+accuse
+-----
+Label: ACCUSE
+Definition: Disapprovals, complaints, condemnations, criticisms. Accuse or charge judicially or informally. Investigations. Examples: "condemned the attack," "charged with corruption," "launched an investigation."
+Clarification: Q3 — Verbal Conflict (statements, demands, accusations; NO physical action).
+
+reject
+-----
+Label: REJECT
+Definition: All rejections and refusals of assistance, policy changes, yielding, or meetings. Examples: "refused to negotiate," "rejected the proposal," "vetoed the resolution."
+Clarification: Q3 — Verbal Conflict (statements, demands, accusations; NO physical action).
+
+threaten
+-----
+Label: THREATEN
+Definition: Threats, coercive or forceful warnings with serious repercussions. Verbal only. Examples: "warned of military action," "threatened sanctions," "issued an ultimatum."
+Clarification: Q3 — Verbal Conflict (statements, demands, accusations; NO physical action).
+
+protest
+-----
+Label: PROTEST
+Definition: Civilian demonstrations and collective actions as protests. Rally, march, strike, gather to protest. Examples: "staged demonstrations," "marched in protest," "organized a strike."
+Clarification: Q4 — Material Conflict (physical actions, force, tangible punishment).
+
+sanction
+-----
+Label: SANCTION
+Definition: Reductions in existing cooperative relations. Withdrawing or discontinuing diplomatic, commercial, or material exchanges. Examples: "imposed trade embargo," "recalled ambassador," "froze assets," "halted military aid."
+Clarification: Q4 — Material Conflict (physical actions, force, tangible punishment).
+
+mobilize
+-----
+Label: MOBILIZE
+Definition: Military or police moves short of actual force. Demonstration of military capabilities. Distinct from verbal THREAT and actual ASSAULT. Examples: "deployed troops to border," "placed forces on alert."
+Clarification: Q4 — Material Conflict (physical actions, force, tangible punishment).
+
+coerce
+-----
+Label: COERCE
+Definition: Repression, restrictions on rights, coercive power short of violence. Arresting, deporting, banning, curfew, cyber attacks. Examples: "arrested opposition leaders," "imposed curfew," "banned the organization."
+Clarification: Q4 — Material Conflict (physical actions, force, tangible punishment).
+
+assault
+-----
+Label: ASSAULT
+Definition: Deliberate actions potentially resulting in substantial physical harm. Includes unconventional mass violence. Examples: "bombed the city," "kidnapped officials," "launched military offensive."
+Clarification: Q4 — Material Conflict (physical actions, force, tangible punishment).

@@ -1,0 +1,3 @@
+text,label,meta,context,source,target
+"<s>Country C</s> delivered medical supplies to <t>Country D</t>.",AID,synthetic toy example,,Country C,Country D
+"<s>State G</s> arrested members of <t>Group H</t>.",COERCE,synthetic toy example,,State G,Group H
