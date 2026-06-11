@@ -1,3 +1,10 @@
+# When Better Codebooks Are Not Enough: Predictive Performance and Behavioral Reliability in LLM Political Event Coding
+
+This repository contains the code and resources for our study on the behavioral reliability of Large Language Models (LLMs) for political event coding. While recent work has shown promising predictive performance, we find that model decisions can remain sensitive to seemingly minor prompt-level variations, including changes to label names, ordering, and codebook descriptions. The project introduces a perturbation-based evaluation framework to measure behavioral consistency beyond traditional accuracy metrics.
+
+📄 Paper: https://arxiv.org/abs/2606.06781
+
+
 # Simplified Code
 
 This folder follows the two-part structure of the paper.
@@ -47,3 +54,23 @@ python3 primary/aw_predictive_experiments.py --help
 ```
 
 Older working-folder names are not used here.
+
+
+
+## Citation
+
+```bibtex
+
+@article{he2026better,
+
+  title={When Better Codebooks Are Not Enough: Predictive Performance and Behavioral Reliability in LLM Political Event Coding},
+
+  author={He, Zixian and Murugesan, Bharath Raahul and Brandt, Patrick T. and Hu, Yibo},
+
+  journal={arXiv preprint arXiv:2606.06781},
+
+  year={2026}
+
+}
+
+```
