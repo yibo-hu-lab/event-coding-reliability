@@ -62,15 +62,10 @@ Older working-folder names are not used here.
 ```bibtex
 
 @article{he2026better,
-
   title={When Better Codebooks Are Not Enough: Predictive Performance and Behavioral Reliability in LLM Political Event Coding},
-
   author={He, Zixian and Murugesan, Bharath Raahul and Brandt, Patrick T. and Hu, Yibo},
-
   journal={arXiv preprint arXiv:2606.06781},
-
   year={2026}
-
 }
 
 ```
