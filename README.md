@@ -45,8 +45,6 @@ README.md                      This overview.
   - codebook order changes
   - generic labels
   - swapped label-definition mappings
-- A supplemental source-target swapped notebook for running the same behavioral checks on role-swapped splits.
-- Normalized raw CSVs and small toy data for Part II checks.
 
 ## Dependencies
 
