@@ -2,7 +2,7 @@
 
 Official simplified code for the paper **When Better Codebooks Are Not Enough: Predictive Performance and Behavioral Reliability in LLM Political Event Coding**.
 
-📄 Paper: `EMNLP_2026___Codebook_Event_Coding.pdf`
+📄 Paper: [arXiv:2606.06781](https://arxiv.org/abs/2606.06781)
 
 ## Key Finding
 
