@@ -4,6 +4,8 @@ Official simplified code for the paper **When Better Codebooks Are Not Enough: P
 
 📄 Paper: [arXiv:2606.06781](https://arxiv.org/abs/2606.06781)
 
+✅ Accepted to **EACL 2027** (main conference).
+
 ## Key Finding
 
 Better codebooks improve predictive performance, but higher accuracy does not guarantee behavioral reliability.
@@ -78,4 +80,15 @@ Run Part I help commands:
 cd ../part1_predictive_evaluation
 python3 primary/plover_predictive_experiments.py --help
 python3 primary/aw_predictive_experiments.py --help
+```
+
+## Citation
+
+```bibtex
+@inproceedings{he2027better,
+  title     = {When Better Codebooks Are Not Enough: Predictive Performance and Behavioral Reliability in {LLM} Political Event Coding},
+  author    = {He, Zixian and Murugesan, Bharath Raahul and Brandt, Patrick T. and Hu, Yibo},
+  booktitle = {Proceedings of the Conference of the European Chapter of the Association for Computational Linguistics (EACL 2027)},
+  year      = {2027},
+}
 ```
