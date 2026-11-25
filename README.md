@@ -37,7 +37,8 @@ Each example is coded under three codebooks that share the same 15 labels but gi
 # Part II: codebook-change probes (Hugging Face models)
 cd part2_behavioral_probes
 pip install -r requirements.txt
-python run.py --make-dataset-splits --split-builder-datasets plover,aw
+python run.py --make-dataset-splits --split-builder-datasets plover --raw-data-file data/raw_data/plv.csv
+python run.py --make-dataset-splits --split-builder-datasets aw
 python run.py --model meta-llama/Meta-Llama-3.1-8B-Instruct --datasets plover --limit 20
 
 # Part I: predictive evaluation (Ollama)
