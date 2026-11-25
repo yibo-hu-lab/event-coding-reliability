@@ -70,7 +70,7 @@ Part I needs the released PLV/AW split files under `part1_predictive_evaluation/
 | Generic labels | Label names replaced with `LABEL_1`, `LABEL_2`, ... | Table 4, Tables 8–9 |
 | Swapped mapping | Label names reassigned so that no definition keeps its original name | Table 4, Table 10 |
 
-All probes run by default. Use `--behavioral-labeled` (original, generic, swapped) or `--behavioral-unlabeled` (order) to run a subset. Probe runs use greedy decoding.
+Use `--behavioral-labeled` (original, generic, swapped) or `--behavioral-unlabeled` (order) to run a subset. With neither flag, all probes run, plus a definition-recovery check that is not reported in the paper. Probe runs use greedy decoding.
 
 ## Example: the codebook changes
 
@@ -98,7 +98,7 @@ part1_predictive_evaluation/
   primary/          main PLV and AW prediction scripts
   supplemental/     RAG and direct binary/quad experiments
   prompts/          NLI baseline prompts (Tiny, Full, Tree)
-  codebooks/        links to the PLOVER and CAMEO manuals
+  codebooks/        PLOVER and CAMEO manuals (PDF)
 part2_behavioral_probes/
   run.py            command-line runner for the probes
   code/             probes, zero-shot evaluation, CoT/ICL/RAG pipelines
