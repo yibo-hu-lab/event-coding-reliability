@@ -1,54 +1,32 @@
-# Part II: Behavioral Probes
+# Part II: Rule-Adherence Probes
 
-This folder contains the simplified code for the Part II behavioral checks for codebook-grounded source-target event coding. It is separate from `../part1_predictive_evaluation/` because these checks use Hugging Face models, while the Part I prediction scripts use Ollama. Large datasets, result files, notebooks, saved predictions, and editor files are not included.
+This directory contains the code for the rule-adherence probes in the paper. The probes ask whether model predictions follow the codebook when the codebook is changed in controlled ways. Unlike the Part I scripts, which query models through Ollama, these probes load models from Hugging Face. The predictive experiments are in [`../part1_predictive_evaluation/`](../part1_predictive_evaluation/).
 
-## Contents
+## Probes
 
-- `run.py`: command-line runner.
-- `code/`: main code for evaluation, summaries, and split creation.
-- `data/codebooks/`: lightweight codebook files used by the behavioral and predictive methods.
-- `data/prompt_assets/`: few-shot and RAG prompt files.
-- `data/raw_data/`: normalized raw CSV files used to rebuild splits.
-- `data/dataset_splits/`: place train/dev/test split CSV files here.
-- `examples/toy_plover_splits/`: tiny synthetic split files for checking the command line.
-- `results/`: result folder created when commands are run.
+Each probe reruns the same inputs under a modified codebook and compares the predictions with those under the original codebook.
 
-## Paper Alignment
+| Probe | Codebook change | Expected behavior if the model follows the codebook | Metric |
+|---|---|---|---|
+| Original | None | Baseline accuracy | Accuracy |
+| Order | Entries reversed or shuffled; labels and definitions unchanged | Predictions remain stable | Fleiss' κ across original, reversed, and shuffled orders |
+| Generic labels | Label names replaced with `LABEL_1`, `LABEL_2`, ... | Predictions follow the definitions | Weighted F1 against remapped gold labels |
+| Swapped mapping | Label names reassigned by a derangement, so no definition keeps its original name | Predictions follow the definitions, not the familiar names | Weighted F1 against remapped gold labels |
 
-The default behavioral run matches the Part II diagnostics reported in the paper:
+Results are reported in Table 4 and Table 8 (PLV), Table 9 (AW), and Table 10 (a swapped-mapping example). All probe runs use greedy decoding.
 
-- original-condition accuracy under the unmodified codebook
-- legal-label compliance and definition recovery, summarized as `CB-Align.`
-- order perturbations with reversed and shuffled codebooks
-- generic-label probes
-- swapped label-definition mapping probes
-- `Rule-S`, computed as the mean of order agreement, generic-label F1, and swapped-mapping F1
+## Models
 
-The included `plover_enriched_codebook.txt` and `aw_enriched_codebook.txt` files are the enriched codebooks with definitions, examples, event-mode guidance, and boundary notes. Compact versions are also included as `plover_compact_codebook.txt` and `aw_compact_codebook.txt`.
-
-## Data Format
-
-To run evaluation directly, place split files under `data/dataset_splits/`:
+The paper uses four instruction-tuned models, loaded with 4-bit quantization:
 
 ```text
-<dataset>_train.csv
-<dataset>_dev.csv
-<dataset>_test.csv
+google/gemma-2-9b-it
+Qwen/Qwen2.5-7B-Instruct
+mistralai/Mistral-7B-Instruct-v0.2
+meta-llama/Meta-Llama-3.1-8B-Instruct
 ```
 
-Required columns:
-
-```text
-text,label
-```
-
-Optional columns used when available:
-
-```text
-meta,context,source,target
-```
-
-To rebuild splits from raw data, use the normalized CSVs under `data/raw_data/` and run the split builder. The dataset slugs are `plover` and `aw`; the PLOVER raw file is named `plv.csv` for compatibility with the source export.
+Access to the Gemma, Mistral, and Llama models requires accepting their licenses on Hugging Face. GPU runs require a compatible PyTorch/CUDA installation.
 
 ## Setup
 
@@ -58,98 +36,88 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-GPU-backed model runs require a compatible PyTorch/CUDA installation and access to the selected Hugging Face model.
+## Data
 
-## Smoke Test
-
-The following commands use synthetic toy data, so they are not paper results. They only confirm that the code can read splits and codebooks.
+`data/raw_data/` contains normalized PLV (`plv.csv`) and AW (`aw.csv`) rows from Hu et al. (2024). Build the train/dev/test splits with:
 
 ```bash
-mkdir -p data/dataset_splits
-cp examples/toy_plover_splits/*.csv data/dataset_splits/
-python run.py --help
-python run.py --dataset-stats --stats-datasets plover
+python run.py --make-dataset-splits --split-builder-datasets plover --raw-data-file data/raw_data/plv.csv
+python run.py --make-dataset-splits --split-builder-datasets aw
 ```
 
-The stats command writes outputs under:
+The splits are written to `data/dataset_splits/` with a fixed seed (42). The probes run on the dev splits, which contain 312 PLV and 253 AW examples, matching the evaluation subsets in the paper. Split files contain the columns `text,label`, with optional `meta,context,source,target`.
 
-```text
-results/dataset_stats/
-```
+## Running the Probes
 
-## Reproducing Runs
-
-Generate dataset splits:
-
-```bash
-python run.py --make-dataset-splits --split-builder-datasets plover,aw
-```
-
-Run behavioral probes:
+To reproduce a paper run, use the full dev split (`--limit 0`) and 4-bit quantization:
 
 ```bash
 python run.py \
   --model meta-llama/Meta-Llama-3.1-8B-Instruct \
   --datasets plover \
-  --limit 200 \
+  --limit 0 \
   --quantization 4
 ```
 
-By default this runs all paper behavioral probes. To run a subset, add one or more of:
+Replace `--datasets plover` with `--datasets aw` for AW, and repeat for each model. The default `--limit 200` samples 200 dev examples, which is useful for quicker runs.
+
+To run a subset of probes:
 
 ```bash
---behavioral-codebook     # definition recovery
---behavioral-unlabeled    # order perturbations + legal-label compliance
---behavioral-labeled      # original accuracy + generic-label + swapped-mapping probes
+--behavioral-labeled      # original, generic-label, and swapped-mapping probes
+--behavioral-unlabeled    # order probes
 ```
 
-Run zero-shot evaluation only:
+With neither flag, all probes run, together with a definition-recovery check (`--behavioral-codebook`) that is not reported in the paper.
 
-```bash
-python run.py \
-  --only-zeroshot \
-  --model meta-llama/Meta-Llama-3.1-8B-Instruct \
-  --zeroshot-datasets plover \
-  --zeroshot-limit 5
+## Codebooks and Prompt Assets
+
+```text
+data/codebooks/plover_compact_codebook.txt    PLV, Compact
+data/codebooks/plover_enriched_codebook.txt   PLV, Enriched
+data/codebooks/aw_compact_codebook.txt        AW, Compact
+data/codebooks/aw_enriched_codebook.txt       AW, Enriched
+data/prompt_assets/                           ICL demonstrations and RAG retrieval bundles
 ```
 
-Generate dataset descriptives:
+The Compact codebook contains label names, short definitions, and quad-level groupings. The Enriched codebook adds examples, event-mode guidance, boundary notes, and disambiguation rules. The codebooks are adapted from PLOVER (CC BY-SA 4.0).
 
-```bash
-python run.py --dataset-stats --stats-datasets plover
-```
+The ICL, CoT, and RAG probe rows in Table 4 use the pipelines in `code/evaluation/` (`icl_behavior_pipeline.py`, `cot_behavior_pipeline.py`, `rag_behavior_pipeline.py`). These modules are called from Python and do not have a command-line entry point in `run.py`. `ragv2_behavior_pipeline.py` is an earlier retrieval variant that is not reported in the paper.
 
 ## Outputs
 
-Main outputs are written under:
+Results are written under `results/` (not tracked by git):
 
 ```text
 results/behavioral_results/
+  *_results.csv                  long-form probe metrics
+  *_paper_probe_breakdown.csv    original, reversed, shuffled, order κ, generic F1, swap F1
+  *_paper_summary.csv            original accuracy and two aggregate columns
 results/behavioral_prediction_cache/
-results/zero_shot_results/
-results/dataset_stats/
 ```
 
-Behavioral runs write three summary CSVs:
+The aggregate columns `CB-Align.` and `Rule-S` in `*_paper_summary.csv` come from an earlier draft and are not reported in the paper.
+
+## Other Utilities
+
+```bash
+python run.py --only-zeroshot --model <hf_model_id> --zeroshot-datasets plover --zeroshot-limit 5
+python run.py --dataset-stats --stats-datasets plover
+```
+
+`examples/toy_plover_splits/` contains small synthetic splits for checking that the code can read data and codebooks. These are not paper data.
+
+## Directory Structure
 
 ```text
-*_results.csv                    # long-form probe metrics
-*_paper_probe_breakdown.csv      # Orig./Rev./Shuf./Order kappa/Generic F1/Swap F1
-*_paper_summary.csv              # Orig. Acc., CB-Align., Rule-S
+run.py                    command-line runner
+code/core/                probe construction, codebook parsing, model loading
+code/evaluation/          probe runner, zero-shot evaluation, ICL/CoT/RAG pipelines
+code/data_prep/           split builder
+code/pipeline/            runner internals
+code/reporting/           dataset statistics and example export
+data/codebooks/           Compact and Enriched codebooks (PLV, AW)
+data/prompt_assets/       ICL and RAG prompt files
+data/raw_data/            normalized PLV and AW rows
+examples/                 synthetic toy splits
 ```
-
-Result files are not included.
-
-## Notes
-
-- This folder does not include machine-specific paths, notebooks, saved predictions, result files, or full datasets.
-- If using a custom dataset slug, pass a codebook explicitly with `--codebook-new-file` or set `BEHAVIOR_<SLUG>_CODEBOOK_NEW`.
-- New result files are written under `results/` and are ignored by git.
-
-## What Is Included
-
-This folder includes the Part II probes, zero-shot evaluation, CoT/ICL/RAG-style prediction scripts, split creation, and descriptive summaries.
-
-It includes normalized raw CSVs for creating splits, but it does not include large model weights, original source files, precomputed split CSVs, saved predictions, or paper figures. Behavioral runs can be rerun from the normalized raw CSVs using the split script.
-
-For Part I prediction scripts, see `../part1_predictive_evaluation/`. Other experiment folders, notebooks, saved outputs, and plotting work folders are not included here.
