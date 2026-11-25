@@ -6,11 +6,30 @@ Zixian He (Independent Researcher) · Bharath Raahul Murugesan (Illinois Institu
 
 📄 [arXiv:2606.06781](https://arxiv.org/abs/2606.06781)
 
-<p align="center"><img src="teaser.png" width="620" alt="A more detailed codebook raises root-level macro-F1 from 0.46 to 0.63, but reversing the order of codebook entries changes 21% of predictions."></p>
-
 ## Key finding
 
-Clearer codebooks make LLMs better event coders, but higher accuracy does not show that a model follows the codebook. On PLV source-target event coding with 15 PLOVER root labels, mean macro-F1 across four open-source LLMs rises from **0.457** with label names alone to **0.574** with short definitions and **0.633** with an enriched codebook. Yet reversing the order of entries in the enriched codebook, with every label and definition unchanged, changes **21.2%** of predictions. LLM-generated labels used as social-science data should be checked for both predictive performance and responses to codebook changes.
+<table>
+<tr>
+<td width="52%">
+Clearer codebooks make LLMs better event coders, but higher accuracy does not show that a model follows the codebook.
+<br><br>
+On PLV source-target event coding with 15 PLOVER root labels, mean macro-F1 across four open-source LLMs rises from <b>0.457</b> with label names alone to <b>0.574</b> with short definitions and <b>0.633</b> with an enriched codebook.
+<br><br>
+Yet reversing the order of entries in the enriched codebook, with every label and definition unchanged, changes <b>21.2%</b> of predictions.
+<br><br>
+LLM-generated labels used as social-science data should be checked for both predictive performance and responses to codebook changes.
+</td>
+<td width="48%" valign="middle">
+<img src="teaser.png" width="100%" alt="A more detailed codebook raises root-level macro-F1 from 0.46 to 0.63, but reversing the order of codebook entries changes 21% of predictions.">
+</td>
+</tr>
+</table>
+
+## Framework
+
+<p align="center"><img src="framework.png" width="820" alt="Framework: news text and an actor pair are coded by an LLM under three codebooks (No Codebook, Compact, Enriched), plus ICL, CoT and RAG; outputs are evaluated for predictive performance and for rule adherence under order, generic-label and swapped-mapping changes."></p>
+
+Each example is coded under three codebooks that share the same 15 labels but give increasingly detailed guidance. We then evaluate (A) predictive performance under the original codebook and (B) rule adherence, by changing the codebook and checking whether predictions follow the change.
 
 ## Quick start
 
